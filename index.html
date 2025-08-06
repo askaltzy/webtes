@@ -1,150 +1,188 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greetch Vynter - Portfolio Simple</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/all.min.css">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amelia Meta AI - Teknologi" />
+  <meta name="author" content="Amelia Modders" />
+  <title>Amelia Meta AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
-
-    :root {
-      --harvey-dark: #1f4037;
-      --harvey-light: #99f2c8;
-      --dark-bg: linear-gradient(180deg, #2c5364 0%, #203a43 50%, #0f2027 100%);
-      --light-bg: linear-gradient(180deg, #99f2c8 0%, #1f4037 100%);
-      --glass-bg-dark: rgba(255, 255, 255, 0.05);
-      --glass-bg-light: rgba(255, 255, 255, 0.08);
-      --glass-border-dark: rgba(255, 255, 255, 0.1);
-      --glass-border-light: rgba(255, 255, 255, 0.15);
-      --text-primary-dark: #ffffff;
-      --text-primary-light: #ffffff;
-      --text-secondary-dark: rgba(255, 255, 255, 0.9);
-      --text-secondary-light: rgba(255, 255, 255, 0.9);
-      --shadow-light: 0 8px 32px rgba(31, 64, 55, 0.2);
-      --shadow-heavy: 0 20px 60px rgba(31, 64, 55, 0.3);
-    }
-
-    [data-theme="dark"] {
-      --current-bg: var(--dark-bg);
-      --glass-bg: var(--glass-bg-dark);
-      --glass-border: var(--glass-border-dark);
-      --text-primary: var(--text-primary-dark);
-      --text-secondary: var(--text-secondary-dark);
-    }
-
-    [data-theme="light"] {
-      --current-bg: var(--light-bg);
-      --glass-bg: var(--glass-bg-light);
-      --glass-border: var(--glass-border-light);
-      --text-primary: var(--text-primary-light);
-      --text-secondary: var(--text-secondary-light);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--current-bg);
-      color: var(--text-primary);
-      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 1rem;
-      overflow-x: hidden;
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: background;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+    }
+
+    .button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #00f0ff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #ffffff;
+      color: #00f0ff;
+      transform: scale(1.05);
+    }
+
+    .animated-bg {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-      pointer-events: none;
       z-index: -1;
-      animation: floatingBg 20s ease-in-out infinite;
+      background: radial-gradient(circle at center, rgba(0,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 5s infinite ease-in-out;
     }
 
-    @keyframes floatingBg {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33% { transform: translateY(-20px) rotate(1deg); }
-      66% { transform: translateY(20px) rotate(-1deg); }
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.6;
+      }
     }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
 
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 50px;
-      padding: 0.8rem;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1000;
-      color: var(--text-primary);
-      font-size: 1.2rem;
-      width: 50px;
-      height: 50px;
+  <h1>Amelia Meta - Ai</h1>
+  <p>Selamat datang di Amelia Meta - Ai. Kecerdasan buatan yang canggih, aman, dan dirancang untuk manusia.</p>
+  <button class="button">Jelajahi Teknologi</button>
+</body>
+</html> <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amelia Meta AI - Teknologi" />
+  <meta name="author" content="Amelia Modders" />
+  <title>Amelia Meta AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      will-change: transform, background;
+      overflow: hidden;
     }
 
-    .theme-toggle:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: scale(1.1) rotate(180deg);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      animation: glow 2s infinite alternate;
     }
 
-    .theme-toggle:active {
-      transform: scale(0.95) rotate(180deg);
-    }
-
-    .container, .main-content {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 2.5rem;
-      max-width: 420px;
-      width: 100%;
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
       text-align: center;
-      box-shadow: var(--shadow-light);
-      display: none;
-      animation: slideUpFade 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: transform, opacity;
+      opacity: 0.8;
     }
 
-    .container::before, .main-content::before {
-      content: '';
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+    }
+
+    .button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #00f0ff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #ffffff;
+      color: #00f0ff;
+      transform: scale(1.05);
+    }
+
+    .animated-bg {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      border-radius: 24px 24px 0 0;
-      animation: shimmer 3s ease-in-out infinite;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at center, rgba(0,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 5s infinite ease-in-out;
     }
 
-    @keyframes shimmer {
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.6;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <h1>Amelia Meta - Ai</h1>
+  <p>Selamat datang di Amelia Meta - Ai. Kecerdasan buatan yang canggih, aman, dan dirancang untuk manusia.</p>
+  <button class="button">Jelajahi Teknologi</button>
+</body>
+</html>    @keyframes shimmer {
       0%, 100% { opacity: 0.3; }
       50% { opacity: 0.8; }
     }
