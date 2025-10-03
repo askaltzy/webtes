@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amelia Meta AI - Teknologi" />
+  <meta name="author" content="Amelia Modders" />
+  <title>Amelia Meta AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+    }
+
+    .button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #00f0ff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #ffffff;
+      color: #00f0ff;
+      transform: scale(1.05);
+    }
+
+    .animated-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at center, rgba(0,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 5s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.6;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <h1>Amelia Meta - Ai</h1>
+  <p>Selamat datang di Amelia Meta - Ai. Kecerdasan buatan yang canggih, aman, dan dirancang untuk manusia.</p>
+  <button class="button">Jelajahi Teknologi</button>
+</body>
+</html>
